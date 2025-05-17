@@ -33,6 +33,7 @@ resource "aws_instance" "solr" {
   instance_type          = var.instance_type
   subnet_id              = tolist(data.aws_subnets.public.ids)[0] # 最初のパブリックサブネットを使用
   vpc_security_group_ids = [aws_security_group.solr_sg.id]
+#   key_name               = aws_key_pair.ssh.key_name
   iam_instance_profile   = aws_iam_instance_profile.ssm_instance_profile.name
 
   # Root volume (default)
