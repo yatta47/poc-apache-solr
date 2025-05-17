@@ -42,7 +42,9 @@ resource "aws_instance" "solr" {
     volume_type = "gp2"
   }
 
-  user_data = file("${path.module}/user_data.sh")
+  user_data = templatefile("${path.module}/user_data.tpl", {
+    device_name = "/dev/xvdf"  # aws_volume_attachmentで指定したデバイス名と一致させる
+  })
 
   tags = {
     Name = "solr-single-node"
