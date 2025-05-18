@@ -44,7 +44,8 @@ bash /opt/solr-$SOLR_VERSION/bin/install_solr_service.sh $TMP_TGZ \
   -d $MOUNT_DIR \
   -u solr \
   -s solr \
-  -p 8983
+  -p 8983 \
+  -n
 
 # Enable and start Solr service
 systemctl enable solr
